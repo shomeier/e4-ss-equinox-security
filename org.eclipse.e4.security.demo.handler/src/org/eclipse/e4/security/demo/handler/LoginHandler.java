@@ -7,6 +7,6 @@ public class LoginHandler
 	@Execute
 	public void execute()
 	{
-
+		System.out.println("Successfully executed command!!!");
 	}
 }

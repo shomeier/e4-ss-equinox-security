@@ -1,10 +1,12 @@
 package org.eclipse.e4.security.demo.ui;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.inject.Inject;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.commands.ParameterizedCommand;
+import org.eclipse.e4.core.commands.ECommandService;
+import org.eclipse.e4.core.commands.EHandlerService;
+import org.eclipse.e4.security.demo.handler.LoginHandler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -23,7 +25,7 @@ public class LoginPart
 	private Text txt_password;
 
 	@Inject
-	public LoginPart(Composite parent)
+	public LoginPart(Composite parent, final ECommandService commandService, final EHandlerService handlerService)
 	{
 		// set grid layout to parent
 		parent.setLayout(new GridLayout());
@@ -60,9 +62,28 @@ public class LoginPart
 		btn_login.addSelectionListener(new SelectionAdapter()
 		{
 			@Override
+			@SuppressWarnings("restriction")
 			public void widgetSelected(SelectionEvent e)
 			{
-				txt_user.setText(new SimpleDateFormat("dd.MM.yyyy").format(new Date()));
+				// txt_user.setText(new SimpleDateFormat("dd.MM.yyyy").format(new Date()));
+
+				// programmatically call the LoginCommand via Eclipse 4 Services
+				Command command = commandService.getCommand("org.eclipse.e4.security.demo.ui.command.LoginCommand");
+
+				// check if the command is defined
+				System.out.println(command.isDefined());
+
+				// activate Handler, assumption: the AboutHandler() class exists already
+				handlerService.activateHandler("org.eclipse.e4.security.demo.ui.command.LoginHandler", new LoginHandler());
+
+				ParameterizedCommand cmd =
+					commandService.createCommand("org.eclipse.e4.security.demo.ui.command.LoginCommand", null);
+
+				// check if the command can get executed
+				System.out.println(handlerService.canExecute(cmd));
+
+				// execute the command
+				handlerService.executeHandler(cmd);
 			}
 		});
 	}
