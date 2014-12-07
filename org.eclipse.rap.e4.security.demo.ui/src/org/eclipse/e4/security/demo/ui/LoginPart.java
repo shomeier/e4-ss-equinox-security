@@ -1,4 +1,4 @@
-package org.eclipse.rap.security.demo.ui;
+package org.eclipse.e4.security.demo.ui;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
