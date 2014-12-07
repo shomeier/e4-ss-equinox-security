@@ -1,7 +1,7 @@
 /**
  *
  */
-package org.eclipse.rap.e4.security.demo.rap;
+package org.eclipse.e4.security.demo.rap;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -70,7 +70,7 @@ public class RapApplication implements ApplicationConfiguration
 		application.addEntryPoint(
 			"/rap",
 			new E4EntryPointFactory(E4ApplicationConfig
-				.create("platform:/plugin/org.eclipse.rap.e4.security.demo.ui/Application.e4xmi")), properties);
+				.create("platform:/plugin/org.eclipse.e4.security.demo.ui/SingleSource.e4xmi")), properties);
 		application.setOperationMode(OperationMode.SWT_COMPATIBILITY);
 	}
 }

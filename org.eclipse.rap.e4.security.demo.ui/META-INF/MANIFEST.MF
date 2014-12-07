@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse RAP e4 Security Demo UI
-Bundle-SymbolicName: org.eclipse.rap.e4.security.demo.ui
+Bundle-SymbolicName: org.eclipse.e4.security.demo.ui
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javax.inject;version="1.0.0",

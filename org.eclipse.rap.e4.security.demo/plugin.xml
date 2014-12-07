@@ -9,7 +9,7 @@
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="applicationCSS"
-               value="platform:/plugin/org.eclipse.rap.e4.security.demo.rap/css/default.css">
+               value="platform:/plugin/org.eclipse.e4.security.demo.rap/css/default.css">
          </property>
          <property
                name="appName"
