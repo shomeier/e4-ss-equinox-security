@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_xa4WsH4zEeSQ7armriw5Qw" elementId="org.eclipse.e4.ide.application" bindingContexts="_xa4WuX4zEeSQ7armriw5Qw">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_xa4WsX4zEeSQ7armriw5Qw" visible="false" label="org.eclipse.rap.e4.security.demo" width="500" height="400">
-    <windows xmi:id="_dpXMoH42EeSd1M3c4MXZhA" elementId="org.eclipse.rap.e4.security.demo.window.LoginWindow" label="Login" tooltip="Login" x="600" y="250" width="400" height="400"/>
+    <windows xmi:id="_dpXMoH42EeSd1M3c4MXZhA" elementId="org.eclipse.rap.e4.security.demo.window.LoginWindow" label="Login" tooltip="Login" x="700" y="250" width="225" height="225">
+      <children xsi:type="basic:Part" xmi:id="_qBzOUH5JEeS2cLqu2d1SgQ" elementId="org.eclipse.e4.security.demo.ui.part.login" contributionURI="bundleclass://org.eclipse.e4.security.demo.ui/org.eclipse.rap.security.demo.ui.LoginPart" label="Login" tooltip="Login"/>
+    </windows>
   </children>
+  <handlers xmi:id="_BxOQAH5VEeS2cLqu2d1SgQ" elementId="org.eclipse.e4.security.demo.ui.handler.0" contributionURI="bundleclass://org.eclipse.e4.security.demo.ui/org.eclipse.rap.security.demo.ui.LoginPart" command="_-DRXkH5UEeS2cLqu2d1SgQ"/>
   <rootContext xmi:id="_xa4WuX4zEeSQ7armriw5Qw" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_xa4Wun4zEeSQ7armriw5Qw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_xa4Wu34zEeSQ7armriw5Qw" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
+  <commands xmi:id="_-DRXkH5UEeS2cLqu2d1SgQ" elementId="org.eclipse.e4.security.demo.ui.command.logincommand" commandName="LoginCommand" description="Command responsible for log in"/>
   <addons xmi:id="_xa4Wsn4zEeSQ7armriw5Qw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_xa4Ws34zEeSQ7armriw5Qw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_xa4WtH4zEeSQ7armriw5Qw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

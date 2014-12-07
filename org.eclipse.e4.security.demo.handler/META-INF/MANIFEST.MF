@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse e4 Security Demo Handler Bundle
+Bundle-SymbolicName: org.eclipse.e4.security.demo.handler
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.e4.core.di.annotations
+Export-Package: org.eclipse.e4.security.demo.handler
