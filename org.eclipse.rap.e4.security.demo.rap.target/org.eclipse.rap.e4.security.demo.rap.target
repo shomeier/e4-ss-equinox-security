@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="RAP Target Platform" sequenceNumber="41">
+<?pde version="3.8"?><target name="RAP Target Platform" sequenceNumber="45">
 <locations>
+<location path="${project_loc:org.eclipse.rap.e4.security.demo.rap.target}/rap-e4-p2" type="Profile"/>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rap.e4.target.feature.feature.group" version="0.9.0.201412050704"/>
-<repository location="jar:file:/Volumes/Shorty_JetDrive_1/dev/rap_target_platform/site_assembly.zip!/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rap.feature.feature.group" version="3.0.0.20141110-1349"/>
-<unit id="org.eclipse.rap.examples.feature.feature.group" version="3.0.0.20141110-1130"/>
-<unit id="org.eclipse.rap.sdk.feature.feature.group" version="3.0.0.20141110-1349"/>
-<unit id="org.eclipse.rap.equinox.target.feature.feature.group" version="3.0.0.20141105-1434"/>
-<repository location="http://download.eclipse.org/rt/rap/3.0"/>
+<unit id="org.eclipse.equinox.core.sdk.feature.group" version="3.10.0.v20140909-1633"/>
+<repository location="http://download.eclipse.org/releases/luna"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.e4.tools.css.spy.feature.feature.group" version="0.14.0.v20140707-1917"/>
@@ -31,8 +25,11 @@
 <repository location="http://download.eclipse.org/e4/downloads/drops/S-0.16-201408072200/repository"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.core.sdk.feature.group" version="3.10.0.v20140909-1633"/>
-<repository location="http://download.eclipse.org/releases/luna"/>
+<unit id="org.eclipse.rap.feature.feature.group" version="3.0.0.20141110-1349"/>
+<unit id="org.eclipse.rap.examples.feature.feature.group" version="3.0.0.20141110-1130"/>
+<unit id="org.eclipse.rap.sdk.feature.feature.group" version="3.0.0.20141110-1349"/>
+<unit id="org.eclipse.rap.equinox.target.feature.feature.group" version="3.0.0.20141105-1434"/>
+<repository location="http://download.eclipse.org/rt/rap/3.0"/>
 </location>
 </locations>
 <environment>
