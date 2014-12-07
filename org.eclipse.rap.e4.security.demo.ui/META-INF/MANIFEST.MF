@@ -12,5 +12,4 @@ Import-Package: javax.inject,
  org.eclipse.swt.events,
  org.eclipse.swt.layout,
  org.eclipse.swt.widgets
-Export-Package: org.eclipse.e4.security.demo.ui
 Require-Bundle: org.eclipse.e4.security.demo.handler;bundle-version="1.0.0"
