@@ -9,6 +9,7 @@
     <children xmi:id="_xa4Wun4zEeSQ7armriw5Qw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_xa4Wu34zEeSQ7armriw5Qw" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
+  <commands xmi:id="_4W_QkH5cEeSyN5D849Nhzg" elementId="org.eclipse.e4.security.demo.ui.command.LoginCommand" commandName="LoginCommand" description="Command which is responsible for log in"/>
   <addons xmi:id="_xa4Wsn4zEeSQ7armriw5Qw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_xa4Ws34zEeSQ7armriw5Qw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_xa4WtH4zEeSQ7armriw5Qw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
