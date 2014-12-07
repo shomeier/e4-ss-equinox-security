@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="RAP Target Platform" sequenceNumber="41">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.rap.e4.target.feature.feature.group" version="0.9.0.201412050704"/>
+<repository location="jar:file:/Volumes/Shorty_JetDrive_1/dev/rap_target_platform/site_assembly.zip!/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.rap.feature.feature.group" version="3.0.0.20141110-1349"/>
+<unit id="org.eclipse.rap.examples.feature.feature.group" version="3.0.0.20141110-1130"/>
+<unit id="org.eclipse.rap.sdk.feature.feature.group" version="3.0.0.20141110-1349"/>
+<unit id="org.eclipse.rap.equinox.target.feature.feature.group" version="3.0.0.20141105-1434"/>
+<repository location="http://download.eclipse.org/rt/rap/3.0"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.e4.tools.css.spy.feature.feature.group" version="0.14.0.v20140707-1917"/>
+<unit id="org.eclipse.e4.databinding.tests.feature.feature.group" version="0.13.0.v20140320-1305"/>
+<unit id="org.eclipse.e4.databinding.feature.feature.group" version="0.13.0.v20140320-1340"/>
+<unit id="org.eclipse.e4.core.tools.feature.source.feature.group" version="0.14.0.v20140806-0758"/>
+<unit id="org.eclipse.e4.tools.context.spy.feature.feature.group" version="0.1.0.v20140708-1626"/>
+<unit id="org.eclipse.e4.tools.emf.liveeditor.feature.source.feature.group" version="0.15.0.v20140728-1808"/>
+<unit id="org.eclipse.e4.tools.event.spy.feature.feature.group" version="0.15.0.v20140707-1917"/>
+<unit id="org.eclipse.e4.tools.event.spy.feature.source.feature.group" version="0.15.0.v20140707-1917"/>
+<unit id="org.eclipse.e4.tools.orion.css.editor.feature.source.feature.group" version="0.15.0.v20140404-1904"/>
+<unit id="org.eclipse.e4.tools.css.editor.feature.feature.group" version="0.14.0.v20140221-1650"/>
+<unit id="org.eclipse.e4.tools.emf.liveeditor.feature.feature.group" version="0.15.0.v20140728-1808"/>
+<unit id="org.eclipse.e4.tools.css.editor.feature.source.feature.group" version="0.14.0.v20140221-1650"/>
+<unit id="org.eclipse.e4.tools.orion.css.editor.feature.feature.group" version="0.15.0.v20140404-1904"/>
+<unit id="org.eclipse.e4.core.tools.feature.feature.group" version="0.14.0.v20140806-0758"/>
+<unit id="org.eclipse.e4.tools.css.spy.feature.source.feature.group" version="0.14.0.v20140707-1917"/>
+<repository location="http://download.eclipse.org/e4/downloads/drops/S-0.16-201408072200/repository"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.core.sdk.feature.group" version="3.10.0.v20140909-1633"/>
+<repository location="http://download.eclipse.org/releases/luna"/>
+</location>
+</locations>
+<environment>
+<os>macosx</os>
+<ws>cocoa</ws>
+<arch>x86_64</arch>
+<nl>de_DE</nl>
+</environment>
+<launcherArgs>
+<vmArgs>-Dosgi.requiredJavaVersion=1.6 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=512m -Xms40m -Xmx2048m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgs>
+</launcherArgs>
+</target>
