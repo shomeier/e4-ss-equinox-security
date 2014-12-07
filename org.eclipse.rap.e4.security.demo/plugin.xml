@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="org.eclipse.rap.e4.security.demo"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/org.eclipse.rap.e4.security.demo/css/default.css">
+         </property>
+         <property
+               name="appName"
+               value="org.eclipse.rap.e4.security.demo">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
