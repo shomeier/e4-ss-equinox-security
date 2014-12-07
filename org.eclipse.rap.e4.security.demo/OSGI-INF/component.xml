@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" name="org.eclipse.rap.e4.security.demo">
-   <implementation class="org.eclipse.rap.e4.security.demo.RapApplication"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" name="org.eclipse.rap.e4.security.demo.rap">
+   <implementation class="org.eclipse.rap.e4.security.demo.rap.RapApplication"/>
    <service>
       <provide interface="org.eclipse.rap.rwt.application.ApplicationConfiguration"/>
    </service>
