@@ -48,10 +48,10 @@ public class LoginPart
 		txt_user = new Text(top, SWT.BORDER);
 		txt_user.setLayoutData(gd_user);
 
-		Label lbl_password = new Label(top, SWT.PASSWORD);
+		Label lbl_password = new Label(top, SWT.NONE);
 		lbl_password.setText("Password:");
 		GridData gd_pw = new GridData(SWT.FILL, SWT.CENTER, true, true);
-		txt_password = new Text(top, SWT.PASSWORD);
+		txt_password = new Text(top, SWT.BORDER | SWT.PASSWORD);
 		txt_password.setLayoutData(gd_pw);
 
 		GridData gd_login = new GridData(SWT.FILL, SWT.CENTER, true, true);
