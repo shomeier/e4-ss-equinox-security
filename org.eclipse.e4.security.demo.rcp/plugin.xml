@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="org.eclipse.e4.security.demo.rcp"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/org.eclipse.e4.security.demo.rcp/css/default.css">
+         </property>
+         <property
+               name="applicationXMI"
+               value="platform:/plugin/org.eclipse.e4.security.demo.ui/SingleSource.e4xmi">
+         </property>
+         <property
+               name="appName"
+               value="org.eclipse.e4.security.demo.rcp">
+         </property>
+      </product>
+   </extension>
+
+</plugin>
