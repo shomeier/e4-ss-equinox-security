@@ -1,4 +1,4 @@
-package org.eclipse.e4.security.demo.dummy;
+package org.eclipse.e4.security.demo.login.internal;
 
 import java.net.URL;
 
@@ -11,7 +11,7 @@ import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator
 {
-	public static final String BUNDLE_ID = "org.eclipse.e4.security.demo.dummy";
+	public static final String BUNDLE_ID = "org.eclipse.e4.security.demo.login";
 	private static final String JAAS_CONFIG_FILE = "data/jaas_config.txt";
 	private static BundleContext bundleContext;
 
@@ -21,9 +21,11 @@ public class Activator implements BundleActivator
 		bundleContext = context;
 		String configName = "DUMMY";
 		URL configUrl = context.getBundle().getEntry(JAAS_CONFIG_FILE);
+		System.out.println("URL: " + configUrl);
 		ILoginContext secureContext = LoginContextFactory.createContext(configName, configUrl);
 		try
 		{
+			System.out.println("Calling login ....");
 			secureContext.login();
 		}
 		catch (LoginException exception)

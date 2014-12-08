@@ -51,8 +51,8 @@
       <plugin id="org.eclipse.e4.core.di"/>
       <plugin id="org.eclipse.e4.core.di.extensions"/>
       <plugin id="org.eclipse.e4.core.services"/>
-      <plugin id="org.eclipse.e4.security.demo.dummy"/>
       <plugin id="org.eclipse.e4.security.demo.handler"/>
+      <plugin id="org.eclipse.e4.security.demo.login"/>
       <plugin id="org.eclipse.e4.security.demo.rap"/>
       <plugin id="org.eclipse.e4.security.demo.ui"/>
       <plugin id="org.eclipse.e4.ui.bindings"/>
