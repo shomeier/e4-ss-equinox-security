@@ -6,7 +6,12 @@ import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
+import org.eclipse.e4.core.contexts.EclipseContextFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.security.demo.handler.LoginHandler;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -16,9 +21,15 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
 
 public class LoginPart
 {
+
+	private static final String JAAS_CONFIG_FILE = "data/jaas_config.txt";
+
+	private static String userText = "";
 
 	private Text txt_user;
 
@@ -27,6 +38,16 @@ public class LoginPart
 	@Inject
 	public LoginPart(Composite parent, final ECommandService commandService, final EHandlerService handlerService)
 	{
+		IEclipseContext context =
+			EclipseContextFactory.getServiceContext(FrameworkUtil.getBundle(this.getClass()).getBundleContext());
+		System.out.println("1");
+		if (context.containsKey(EPartService.class))
+			System.out.println("XContains Part Service");
+		if (context.containsKey(MApplication.class))
+			System.out.println("XContains MApplication Service");
+		if (context.containsKey(EModelService.class))
+			System.out.println("XContains EModelService Service");
+
 		// set grid layout to parent
 		parent.setLayout(new GridLayout());
 
@@ -42,7 +63,8 @@ public class LoginPart
 		top.setLayout(layout);
 
 		Label lbl_user = new Label(top, SWT.NONE);
-		lbl_user.setText("User:");
+		// lbl_user.setText("User:");
+		lbl_user.setText(userText);
 
 		GridData gd_user = new GridData(SWT.FILL, SWT.CENTER, true, true);
 		txt_user = new Text(top, SWT.BORDER);
@@ -86,5 +108,17 @@ public class LoginPart
 				handlerService.executeHandler(cmd);
 			}
 		});
+	}
+
+	public static void setUserText(String text)
+	{
+
+		System.out.println("In setUserText ....");
+		userText = text;
+	}
+
+	public BundleContext getBundle()
+	{
+		return FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 	}
 }

@@ -2,7 +2,7 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_xa4WsH4zEeSQ7armriw5Qw" elementId="org.eclipse.e4.ide.application" bindingContexts="_xa4WuX4zEeSQ7armriw5Qw">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_xa4WsX4zEeSQ7armriw5Qw" visible="false" label="org.eclipse.rap.e4.security.demo" width="500" height="400">
     <windows xsi:type="basic:Dialog" xmi:id="_ayLOMH5kEeSaN_9C49tKig" elementId="org.eclipse.e4.security.demo.ui.dialog.LoginDialog" label="LoginDialog" tooltip="LoginDialog" x="700" y="250" width="225" height="225">
-      <children xsi:type="basic:Part" xmi:id="_ns70cH5kEeSaN_9C49tKig" elementId="org.eclipse.e4.security.demo.ui.part.LoginPart" contributionURI="bundleclass://org.eclipse.e4.security.demo.ui/org.eclipse.e4.security.demo.ui.LoginPart" label="Login" tooltip="Login">
+      <children xsi:type="basic:Part" xmi:id="_ns70cH5kEeSaN_9C49tKig" elementId="org.eclipse.e4.security.demo.login.part.LoginPart" contributionURI="bundleclass://org.eclipse.e4.security.demo.ui/org.eclipse.e4.security.demo.ui.LoginPart" label="Login" tooltip="Login">
         <handlers xmi:id="_5b8M0H5kEeSaN_9C49tKig" elementId="org.eclipse.e4.security.demo.ui.handler.0" contributionURI="bundleclass://org.eclipse.e4.security.demo.handler/org.eclipse.e4.security.demo.handler.LoginHandler" command="_4W_QkH5cEeSyN5D849Nhzg"/>
       </children>
     </windows>

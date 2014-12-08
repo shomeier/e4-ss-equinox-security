@@ -4,14 +4,27 @@ Bundle-Name: Eclipse Security e4 Dummy Login Module
 Bundle-SymbolicName: org.eclipse.e4.security.demo.login;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: javax.security.auth,
+Import-Package: javax.inject;version="1.0.0",
+ javax.security.auth,
  javax.security.auth.callback,
  javax.security.auth.login,
  javax.security.auth.spi,
+ org.eclipse.core.commands,
+ org.eclipse.e4.core.commands,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.security.demo.handler,
+ org.eclipse.e4.security.demo.ui,
+ org.eclipse.e4.ui.model.application,
+ org.eclipse.e4.ui.model.application.ui.basic,
+ org.eclipse.e4.ui.workbench.modeling,
  org.eclipse.equinox.app;version="1.1.0",
  org.eclipse.equinox.security.auth;version="1.0.0",
  org.eclipse.swt,
+ org.eclipse.swt.events,
+ org.eclipse.swt.layout,
  org.eclipse.swt.widgets,
  org.osgi.framework
-Require-Bundle: org.eclipse.rap.security.dummy;bundle-version="1.0.0"
 Export-Package: org.eclipse.e4.security.demo.login
+Require-Bundle: org.eclipse.e4.security.demo.rap;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.e4.security.demo.login.internal.Activator

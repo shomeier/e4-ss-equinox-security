@@ -1,11 +1,11 @@
 DUMMY {
     org.eclipse.equinox.security.auth.module.ExtensionLoginModule required
-        extensionId="org.eclipse.rap.security.dummy.dummyLoginModule";
+        extensionId="org.eclipse.e4.security.demo.login.dummyLoginModule";
 
 };
 
 UNIX {
     org.eclipse.equinox.security.auth.module.ExtensionLoginModule required
-        extensionId="org.eclipse.rap.security.dummy.unixLoginModule";
+        extensionId="org.eclipse.e4.security.demo.login.unixLoginModule";
 
 };
