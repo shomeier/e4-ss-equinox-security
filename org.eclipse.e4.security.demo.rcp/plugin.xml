@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
-   <extension
-         id="org.eclipse.e4.security.demo.rcp"
-         name="e4Demo"
-         point="org.eclipse.core.runtime.applications">
-      <application
-            cardinality="singleton-scoped"
-            thread="main"
-            visible="true">
-         <run
-               class="org.eclipse.e4.security.demo.login.Application">
-         </run>
-      </application>
-   </extension>
 
    <extension
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
             name="org.eclipse.e4.security.demo.rcp"
-            application="org.eclipse.e4.security.demo.rcp.org.eclipse.e4.security.demo.rcp">
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
             <property
                name="lifeCycleURI"
                value="bundleclass://org.eclipse.e4.security.demo.rcp/org.eclipse.e4.security.demo.rcp.Manager">
