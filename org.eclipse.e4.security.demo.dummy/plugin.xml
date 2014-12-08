@@ -14,13 +14,13 @@
          id="dummyCallbackHandler"
          point="org.eclipse.equinox.security.callbackHandler">
       <callbackHandler
-            class="org.eclipse.e4.security.demo.login.DummyCallbackHandler">
+            class="org.eclipse.rap.security.dummy.DummyCallbackHandler">
       </callbackHandler>
    </extension>
    <extension
          point="org.eclipse.equinox.security.callbackHandlerMapping">
       <callbackHandlerMapping
-            callbackHandlerId="org.eclipse.e4.security.demo.login.dummyCallbackHandler"
+            callbackHandlerId="org.eclipse.rap.security.dummy.dummyCallbackHandler"
             configName="DUMMY">
       </callbackHandlerMapping>
    </extension>
