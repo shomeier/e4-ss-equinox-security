@@ -27,8 +27,6 @@ import org.eclipse.swt.widgets.Text;
 public class LoginPart
 {
 
-	private static final String JAAS_CONFIG_FILE = "data/jaas_config.txt";
-
 	private static Text txt_user;
 
 	private static Text txt_password;
@@ -41,12 +39,6 @@ public class LoginPart
 	// @Active
 	// @Named("NameCallback")
 	NameCallback callback;
-
-	// @PostConstruct
-	// public void createLoginDialog(Composite parent)
-	// {
-	// System.out.println("In PC!!!");
-	// }
 
 	// @Inject
 	@PostConstruct
