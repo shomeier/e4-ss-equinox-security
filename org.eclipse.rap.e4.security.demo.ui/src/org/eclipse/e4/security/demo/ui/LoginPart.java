@@ -46,6 +46,7 @@ public class LoginPart
 		IEclipseContext context)
 	// LoginHandler nCB)
 	{
+		parent.setFocus();
 		if (callback == null)
 			System.out.println("Injected Callback is null ...");
 		else
@@ -90,7 +91,7 @@ public class LoginPart
 		parent.setLayout(new GridLayout());
 
 		Composite topComposite = new Composite(parent, SWT.NONE);
-
+		topComposite.setFocus();
 		topComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		GridLayout layout = new GridLayout();
 		layout.marginHeight = 5;
@@ -107,6 +108,7 @@ public class LoginPart
 		GridData gd_user = new GridData(SWT.FILL, SWT.CENTER, true, true);
 		// txt_user = new Text(topComposite, SWT.BORDER);
 		txt_user.setLayoutData(gd_user);
+		txt_user.setFocus();
 		txt_user.addModifyListener(new ModifyListener()
 		{
 
