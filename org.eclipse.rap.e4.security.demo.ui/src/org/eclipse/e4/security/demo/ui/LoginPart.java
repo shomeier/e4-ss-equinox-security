@@ -1,6 +1,7 @@
 package org.eclipse.e4.security.demo.ui;
 
 import javax.inject.Inject;
+import javax.security.auth.callback.NameCallback;
 
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.ParameterizedCommand;
@@ -13,6 +14,8 @@ import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
@@ -21,7 +24,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 
 public class LoginPart
@@ -29,11 +31,13 @@ public class LoginPart
 
 	private static final String JAAS_CONFIG_FILE = "data/jaas_config.txt";
 
-	private static String userText = "";
+	private static Text txt_user;
 
-	private Text txt_user;
+	private static Text txt_password;
 
-	private Text txt_password;
+	// private static Composite topComposite;
+
+	private static NameCallback nameCallback;
 
 	@Inject
 	public LoginPart(Composite parent, final ECommandService commandService, final EHandlerService handlerService)
@@ -51,34 +55,43 @@ public class LoginPart
 		// set grid layout to parent
 		parent.setLayout(new GridLayout());
 
-		Composite top = new Composite(parent, SWT.NONE);
+		Composite topComposite = new Composite(parent, SWT.NONE);
 
-		top.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		topComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		GridLayout layout = new GridLayout();
 		layout.marginHeight = 5;
 		layout.marginWidth = 5;
 		layout.makeColumnsEqualWidth = true;// make each column have same width
 		layout.numColumns = 2; // number of columns
 		layout.verticalSpacing = 10;
-		top.setLayout(layout);
+		topComposite.setLayout(layout);
 
-		Label lbl_user = new Label(top, SWT.NONE);
+		Label lbl_user = new Label(topComposite, SWT.NONE);
 		// lbl_user.setText("User:");
-		lbl_user.setText(userText);
-
+		lbl_user.setText(nameCallback.getPrompt());
+		txt_user = new Text(topComposite, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
 		GridData gd_user = new GridData(SWT.FILL, SWT.CENTER, true, true);
-		txt_user = new Text(top, SWT.BORDER);
+		// txt_user = new Text(topComposite, SWT.BORDER);
 		txt_user.setLayoutData(gd_user);
+		txt_user.addModifyListener(new ModifyListener()
+		{
 
-		Label lbl_password = new Label(top, SWT.NONE);
+			public void modifyText(ModifyEvent event)
+			{
+				System.out.println("Triggered NameCB modify listener...");
+				nameCallback.setName(txt_user.getText());
+			}
+		});
+
+		Label lbl_password = new Label(topComposite, SWT.NONE);
 		lbl_password.setText("Password:");
 		GridData gd_pw = new GridData(SWT.FILL, SWT.CENTER, true, true);
-		txt_password = new Text(top, SWT.BORDER | SWT.PASSWORD);
+		txt_password = new Text(topComposite, SWT.BORDER | SWT.PASSWORD);
 		txt_password.setLayoutData(gd_pw);
 
 		GridData gd_login = new GridData(SWT.FILL, SWT.CENTER, true, true);
 		gd_login.horizontalSpan = 2;
-		Button btn_login = new Button(top, SWT.NONE);
+		Button btn_login = new Button(topComposite, SWT.NONE);
 		btn_login.setText("Login");
 		btn_login.setLayoutData(gd_login);
 		btn_login.addSelectionListener(new SelectionAdapter()
@@ -110,15 +123,8 @@ public class LoginPart
 		});
 	}
 
-	public static void setUserText(String text)
+	public static void setNameCallback(NameCallback callback)
 	{
-
-		System.out.println("In setUserText ....");
-		userText = text;
-	}
-
-	public BundleContext getBundle()
-	{
-		return FrameworkUtil.getBundle(this.getClass()).getBundleContext();
+		nameCallback = callback;
 	}
 }

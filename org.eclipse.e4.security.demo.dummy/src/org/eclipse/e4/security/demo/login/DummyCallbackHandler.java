@@ -7,6 +7,9 @@ import java.io.IOException;
 
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.callback.NameCallback;
+import javax.security.auth.callback.PasswordCallback;
+import javax.security.auth.callback.TextOutputCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
@@ -23,12 +26,19 @@ import org.osgi.framework.FrameworkUtil;
  */
 public class DummyCallbackHandler implements CallbackHandler
 {
+	Callback[] callbackArray;
+
+	protected final Callback[] getCallbacks()
+	{
+		return this.callbackArray;
+	}
+
 	@Override
 	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException
 	{
 		System.out.println("CallbackHandler successfully triggered!!!");
-		LoginPart.setUserText("Fram CallbackHandler");
-
+		this.callbackArray = callbacks;
+		createCallbackHandlers();
 		IEclipseContext context =
 			EclipseContextFactory.getServiceContext(FrameworkUtil.getBundle(LoginPart.class).getBundleContext());
 		System.out.println("1");
@@ -67,6 +77,70 @@ public class DummyCallbackHandler implements CallbackHandler
 
 		// System.out.println("Calling LoginPart ....");
 		// loginPart.setUserText("From Callback");
-
 	}
+
+	private void createCallbackHandlers()
+	{
+		Callback[] callbacks = getCallbacks();
+		for (int i = 0; i < callbacks.length; i++)
+		{
+			Callback callback = callbacks[i];
+			if (callback instanceof TextOutputCallback)
+			{
+				// createTextOutputHandler(composite, (TextOutputCallback) callback);
+			}
+			else if (callback instanceof NameCallback)
+			{
+				LoginPart.setNameCallback((NameCallback) callback);
+			}
+			else if (callback instanceof PasswordCallback)
+			{
+				// createPasswordHandler(composite, (PasswordCallback) callback);
+			}
+		}
+	}
+
+	// private void createPasswordHandler(final PasswordCallback callback)
+	// {
+	// Label label = new Label(composite, SWT.NONE);
+	// label.setText(callback.getPrompt());
+	// final Text passwordText = new Text(composite, SWT.SINGLE | SWT.LEAD | SWT.PASSWORD | SWT.BORDER);
+	// passwordText.addModifyListener(new ModifyListener()
+	// {
+	//
+	// public void modifyText(ModifyEvent event)
+	// {
+	// callback.setPassword(passwordText.getText().toCharArray());
+	// }
+	// });
+	// }
+	//
+	// private void createNameHandler(Composite composite, final NameCallback callback)
+	// {
+	// Label label = new Label(composite, SWT.NONE);
+	// label.setText(callback.getPrompt());
+	// final Text text = new Text(composite, SWT.SINGLE | SWT.LEAD | SWT.BORDER);
+	// text.addModifyListener(new ModifyListener()
+	// {
+	//
+	// public void modifyText(ModifyEvent event)
+	// {
+	// callback.setName(text.getText());
+	// }
+	// });
+	// }
+	//
+	// private void createTextOutputHandler(Composite composite, TextOutputCallback callback)
+	// {
+	// int messageType = callback.getMessageType();
+	// switch (messageType)
+	// {
+	// case TextOutputCallback.INFORMATION:
+	// break;
+	// case TextOutputCallback.WARNING:
+	// break;
+	// case TextOutputCallback.ERROR:
+	// break;
+	// }
+	// }
 }
