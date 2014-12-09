@@ -11,7 +11,6 @@ import org.osgi.framework.BundleContext;
 
 public class Activator implements BundleActivator
 {
-	public static final String BUNDLE_ID = "org.eclipse.e4.security.demo.login";
 	private static final String JAAS_CONFIG_FILE = "data/jaas_config.txt";
 	private static BundleContext bundleContext;
 

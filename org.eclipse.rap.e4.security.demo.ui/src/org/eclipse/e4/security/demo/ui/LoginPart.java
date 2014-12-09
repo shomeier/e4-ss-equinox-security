@@ -1,13 +1,12 @@
 package org.eclipse.e4.security.demo.ui;
 
-import javax.inject.Inject;
+import javax.annotation.PostConstruct;
 import javax.security.auth.callback.NameCallback;
 
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
-import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.security.demo.handler.LoginHandler;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -24,7 +23,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.osgi.framework.FrameworkUtil;
 
 public class LoginPart
 {
@@ -39,11 +37,29 @@ public class LoginPart
 
 	private static NameCallback nameCallback;
 
-	@Inject
-	public LoginPart(Composite parent, final ECommandService commandService, final EHandlerService handlerService)
+	// @Inject
+	// @Active
+	// @Named("NameCallback")
+	NameCallback callback;
+
+	// @PostConstruct
+	// public void createLoginDialog(Composite parent)
+	// {
+	// System.out.println("In PC!!!");
+	// }
+
+	// @Inject
+	@PostConstruct
+	public void createLoginDialog(Composite parent, final ECommandService commandService, final EHandlerService handlerService,
+		IEclipseContext context)
+	// LoginHandler nCB)
 	{
-		IEclipseContext context =
-			EclipseContextFactory.getServiceContext(FrameworkUtil.getBundle(this.getClass()).getBundleContext());
+		if (callback == null)
+			System.out.println("Injected Callback is null ...");
+		else
+			System.out.println("Injected Callback is NOOOT null ...");
+		// IEclipseContext context =
+		// EclipseContextFactory.getServiceContext(FrameworkUtil.getBundle(this.getClass()).getBundleContext());
 		System.out.println("1");
 		if (context.containsKey(EPartService.class))
 			System.out.println("XContains Part Service");
@@ -51,6 +67,32 @@ public class LoginPart
 			System.out.println("XContains MApplication Service");
 		if (context.containsKey(EModelService.class))
 			System.out.println("XContains EModelService Service");
+		if (context.containsKey(NameCallback.class))
+			System.out.println("XContains NameCallback -----");
+		else
+			System.out.println("XContains NOT NameCallback -----");
+
+		NameCallback nCallback = context.get(NameCallback.class);
+		if (nCallback == null)
+			System.out.println("YYY nCallback us NULL");
+		else
+			System.out.println("YYY nCallback is NOT nULLLLLL");
+
+		if (context.containsKey(LoginHandler.class))
+			System.out.println("XContains LoginHandler -----");
+		else
+			System.out.println("XContains NOT LoginHandler -----");
+
+		LoginHandler loginHandler = context.get(LoginHandler.class);
+		if (loginHandler == null)
+			System.out.println("YYY nLoginHandler us NULL");
+		else
+			System.out.println("YYY nLoginHandler is NOT nULLLLLL");
+
+		// if (nCB == null)
+		// System.out.println("YYY nCB us NULL");
+		// else
+		// System.out.println("YYY nCB is NOT nULLLLLL");
 
 		// set grid layout to parent
 		parent.setLayout(new GridLayout());

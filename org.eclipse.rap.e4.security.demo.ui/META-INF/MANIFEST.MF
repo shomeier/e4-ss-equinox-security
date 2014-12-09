@@ -18,6 +18,7 @@ Import-Package: javax.inject,
  org.eclipse.swt.layout,
  org.eclipse.swt.widgets,
  org.osgi.framework;version="1.8.0"
-Require-Bundle: org.eclipse.e4.security.demo.handler;bundle-version="1.0.0"
+Require-Bundle: org.eclipse.e4.security.demo.handler;bundle-version="1.0.0",
+ javax.annotation;bundle-version="1.2.0"
 Export-Package: org.eclipse.e4.security.demo.ui
 Bundle-ActivationPolicy: lazy

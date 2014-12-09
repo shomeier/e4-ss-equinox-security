@@ -5,6 +5,7 @@ package org.eclipse.e4.security.demo.login;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.callback.NameCallback;
@@ -12,8 +13,10 @@ import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.callback.TextOutputCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
+import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.security.demo.handler.LoginHandler;
 import org.eclipse.e4.security.demo.ui.LoginPart;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -33,10 +36,21 @@ public class DummyCallbackHandler implements CallbackHandler
 		return this.callbackArray;
 	}
 
+	@Inject
+	IEclipseContext context;
+
 	@Override
 	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException
 	{
 		System.out.println("CallbackHandler successfully triggered!!!");
+
+		if (context == null)
+		{
+			System.out.println("Context is null");
+		}
+		else
+			System.out.println("Context is NOT null");
+
 		this.callbackArray = callbacks;
 		createCallbackHandlers();
 		IEclipseContext context =
@@ -49,6 +63,34 @@ public class DummyCallbackHandler implements CallbackHandler
 		if (context.containsKey(EModelService.class))
 			System.out.println("Contains EModelService Service");
 		EPartService partService = context.get(EPartService.class);
+
+		// IEclipseContext newContext = EclipseContextFactory.create("myContext");
+		IEclipseContext newContext = context.createChild();
+
+		for (int i = 0; i < callbacks.length; i++)
+		{
+			Callback callback = callbacks[i];
+			if (callback instanceof TextOutputCallback)
+			{
+				// createTextOutputHandler(composite, (TextOutputCallback) callback);
+			}
+			else if (callback instanceof NameCallback)
+			{
+				// context.getParent().getParent().getParent().getParent().getParent().set("NameCallback", (NameCallback)
+				// callback);
+				// context.set(LoginHandler.class, new LoginHandler());
+				context.getActiveChild().set(NameCallback.class, (NameCallback) callback);
+				LoginHandler loginHandler = ContextInjectionFactory.make(LoginHandler.class, context.getActiveChild());
+				LoginPart loginPart = ContextInjectionFactory.make(LoginPart.class, context.getActiveChild());
+				context.getActiveChild().set(LoginHandler.class, loginHandler);
+				// ContextInjectionFactory.inject(LoginPart, newContext);
+				// ContextInjectionFactory.
+			}
+			else if (callback instanceof PasswordCallback)
+			{
+				// createPasswordHandler(composite, (PasswordCallback) callback);
+			}
+		}
 
 		if (partService == null)
 		{
